@@ -34,7 +34,7 @@ norma -q peerj-384/https_peerj.com_articles_384/ -i fulltext.html -o tidied.html
 ```
 Tidying-up publisher supplied HTML obtained from quickscrape with jsoup.
 
-## `norma` as an entry point to the CM toolchain
+## `norma` as an entry point to the CM toolchain, for PDF/HTML/XML
 ```
 $ pwd
 /home/workshop
@@ -96,6 +96,19 @@ target/cmdirsxml/
 1 directory, 1 file
 ```
 (above) Takes naked xml file and creates a ctree around it
+
+```
+$ norma -i random.pdf -o new-ctree
+$ ls
+new-ctree  peerj-384  peerjpdf  random.pdf
+$ tree new-ctree/
+new-ctree/
+└── random
+    └── fulltext.pdf
+
+1 directory, 1 file
+```
+(above) Takes a random, user supplied PDF file and creates a ctree around it
 
 ## Convert eupmc XML to scholarly HTML
 ```

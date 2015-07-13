@@ -17,3 +17,13 @@ norma -q ./peerjpdf/ --transform pdf2txt -i fulltext.pdf -o fulltext.pdf.txt
 in the above example, getpapers creates a project directory called peerjpdf, below which are created 5 subdirectories which are each valid ctrees. Norma then takes the project directory passed to -q , and transforms all the fulltext.pdf files within each of the ctrees into fulltext.pdf.txt (plain text)
 
 ### Integration with `quickscrape`
+
+```
+quickscrape \
+  --url https://peerj.com/articles/384 \
+  --scraper journal-scrapers/scrapers/peerj.json \
+  --output peerj-384
+  --outformat bibjson
+norma -q https_peerj.com_articles_384/ -i fulltext.html -o tidied.html  --html jsoup
+```
+Tidying-up publisher supplied HTML obtained from quickscrape with jsoup.

@@ -84,8 +84,18 @@ ieee/
 
 18 directories, 18 files
 ```
-Takes a set of html files obtained from the publisher website and creates ctrees around them.
+(above) Takes a set of html files obtained from the publisher website and creates ctrees around them.
 
+```
+workshop@crunchbang:~/norma$ norma -i src/test/resources/org/xmlcml/norma/regressiondemos/singleFiles/test_xml_1471-2148-14-70.xml -o target/cmdirsxml
+workshop@crunchbang:~/norma$ tree target/cmdirsxml/
+target/cmdirsxml/
+└── test_xml_1471-2148-14-70
+    └── fulltext.xml
+
+1 directory, 1 file
+```
+(above) Takes naked xml file and creates a ctree around it
 
 ## Convert eupmc XML to scholarly HTML
 ```

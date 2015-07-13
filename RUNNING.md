@@ -30,6 +30,6 @@ quickscrape \
   --scraper journal-scrapers/scrapers/peerj.json \
   --output peerj-384
   --outformat bibjson
-norma -q https_peerj.com_articles_384/ -i fulltext.html -o tidied.html  --html jsoup
+norma -q peerj-384/https_peerj.com_articles_384/ -i fulltext.html -o tidied.html  --html jsoup
 ```
 Tidying-up publisher supplied HTML obtained from quickscrape with jsoup.

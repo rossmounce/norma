@@ -33,3 +33,56 @@ quickscrape \
 norma -q peerj-384/https_peerj.com_articles_384/ -i fulltext.html -o tidied.html  --html jsoup
 ```
 Tidying-up publisher supplied HTML obtained from quickscrape with jsoup.
+
+## `norma` as an entry point to the CM toolchain
+```
+$ pwd
+/home/workshop
+$ git clone https://github.com/petermr/norma/
+$ cd norma
+$ pwd
+/home/workshop/norma
+$ norma -i src/test/resources/org/xmlcml/norma/pubstyle/ieee/ -o target/ieee/ -e html --cmdir
+$ tree ieee/
+ieee/
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_1196402edited_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_1196402_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_1196402site_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_1320344_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_1542681_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_4084542_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_4378148_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_4397121_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_4454831_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_4534103_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_5062278_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_5312847_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_5339169_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_5426037_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_5930031_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_6211494_html
+│   └── fulltext.html
+├── src_test_resources_org_xmlcml_norma_pubstyle_ieee_6533337_html
+│   └── fulltext.html
+└── src_test_resources_org_xmlcml_norma_pubstyle_ieee_6911089_html
+    └── fulltext.html
+
+18 directories, 18 files
+```
+Takes a set of html files obtained from the publisher website and creates ctrees around them.
+

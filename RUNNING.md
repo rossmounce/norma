@@ -6,7 +6,7 @@ sudo dpkg -i norma-0.1-SNAPSHOT.deb
 # the password is password
 ```
 
-at the time of writing I'm using norma 0.1.6
+at the time of writing I'm using norma 0.1.6 (#171 Jul 13, 2015 7:01 PM)
 ```
 workshop@crunchbang:~$ norma --version
 norma(0.1.6)

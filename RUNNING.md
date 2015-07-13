@@ -14,3 +14,6 @@ sudo dpkg -i norma-0.1-SNAPSHOT.deb
 getpapers --query 'JOURNAL:"PeerJ" AND FIRST_PDATE:[2015-04-01 TO 2015-04-05]' -p  --outdir peerjpdf
 norma -q ./peerjpdf/ --transform pdf2txt -i fulltext.pdf -o fulltext.pdf.txt
 ```
+in the above example, getpapers creates a project directory called peerjpdf, below which are created 5 subdirectories which are each valid ctrees. Norma then takes the project directory passed to -q , and transforms all the fulltext.pdf files within each of the ctrees into fulltext.pdf.txt (plain text)
+
+### Integration with `quickscrape`

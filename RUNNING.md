@@ -86,3 +86,11 @@ ieee/
 ```
 Takes a set of html files obtained from the publisher website and creates ctrees around them.
 
+
+## Convert eupmc XML to scholarly HTML
+```
+getpapers --query 'JOURNAL:"PeerJ" AND FIRST_PDATE:[2015-04-01 TO 2015-04-05]' -x  --outdir peerjxml
+norma -q peerjxml/  -i fulltext.xml -o scholarly.html --transform nlm2html
+```
+
+

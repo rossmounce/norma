@@ -110,6 +110,11 @@ new-ctree/
 ```
 (above) Takes a random, user supplied PDF file and creates a ctree around it
 
+```
+$ norma -i A.pdf B.html C.xml -o target/ctrees --cmdir
+```
+(above) Take multiple user supplied files with any file names for *.html *.pdf *.xml and create ctrees for each object.
+
 ## Convert eupmc XML to scholarly HTML
 ```
 getpapers --query 'JOURNAL:"PeerJ" AND FIRST_PDATE:[2015-04-01 TO 2015-04-05]' -x  --outdir peerjxml

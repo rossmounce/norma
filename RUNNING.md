@@ -121,4 +121,100 @@ getpapers --query 'JOURNAL:"PeerJ" AND FIRST_PDATE:[2015-04-01 TO 2015-04-05]' -
 norma -q peerjxml/  -i fulltext.xml -o scholarly.html --transform nlm2html
 ```
 
+# Tests from source code
+Searching for Norma tests in the norma source code
+
+from NormaArgProcessorTest.java
+located at src/test/java/org/xmlcml/norma/NormaArgProcessorTest.java
+```
+git clone https://github.com/petermr/norma/
+cd /home/workshop/norma
+```
+
+testMethod()
+```
+norma -i src/test/resources/org/xmlcml/norma/pubstyle/bmc/misc/s12862-014-0277-x.pdf -o plugh -p bmc 
+```
+
+testCreateScholarlyHtml()
+```
+norma -q src/test/resources/org/xmlcml/norma/pubstyle/plosone/journal.pone.0115884/ --transform nlm2html -i fulltext.xml -o scholarly.html --standalone true
+rm src/test/resources/org/xmlcml/norma/pubstyle/plosone/journal.pone.0115884/scholarly.html
+```
+
+testCMDirWithDTD() #FAILS in 0.1.8
+```
+norma -q src/test/resources/org/xmlcml/norma/pubstyle/plosone/journal.pone.0115884/  --transform nlm2html --standalone false -e xml
+```
+
+testPDF2TXT()
+```
+norma -q src/test/resources/org/xmlcml/norma/pubstyle/plosone/journal.pone.0115884/ --transform pdf2txt --input fulltext.pdf --output fulltext.pdf.txt
+```
+
+testHTML2HTML()
+```
+norma -q ieee/src_test_resources_org_xmlcml_norma_pubstyle_ieee_1196402_html/ --html jsoup --input fulltext.html --output fulltext.xhtml
+```
+
+testHTML2HTMLNature()
+```
+norma -q src/test/resources/org/xmlcml/norma/pubstyle/nature/doi_10_1038_nnano_2011_101/ --html jsoup --input fulltext.html --output fulltext.xhtml
+```
+
+testPubstyle() #error when run on its own
+```
+workshop@crunchbang:~/norma$ norma --pubstyle bmc
+0    [main] ERROR org.xmlcml.cmine.args.DefaultArgProcessor  - Cannot create output: --project or --output must be given
+```
+
+testMultipleCMDirs()
+```
+norma -q src/test/resources/org/xmlcml/norma/pubstyle/plosoneMultiple/ --transform nlm2html --input fulltext.xml --output scholarly.html --standalone true
+```
+
+testNormalizeIEEEPDFs() #uses non-local files
+```
+norma -i fulltext.pdf --cmdir ../cmine/target/ieee/musti/Henniger -o fulltext.txt --transform pdf2txt
+```
+
+testCreateCMDirsForIEEEHtml()
+```
+norma -i src/test/resources/org/xmlcml/norma/pubstyle/ieee/ -o target/ieee/ -e html --cmdir
+norma -i fulltext.html -o fulltext.xhtml --cmdir target/ieee --html jsoup
+```
+
+testTransformRawHtmlToScholarly()
+```
+norma -i src/test/resources/org/xmlcml/norma/pubstyle/ieee -o target/ieee/ -e html --cmdir
+norma -i fulltext.html -o fulltext.xhtml --cmdir target/ieee --html jsoup
+norma -i fulltext.xhtml -o scholarly.html --cmdir target/ieee --transform ieee2html
+```
+
+testTransformRawHtmlToScholarlyNature()
+```
+cp -r src/test/resources/org/xmlcml/norma/pubstyle/nature/doi_10_1038_nnano_2011_101/ ./target/nature/
+norma -i fulltext.html -o fulltext.xhtml --cmdir target/nature --html jsoup
+norma -i fulltext.xhtml -o scholarly.html --cmdir target/nature --transform nature2html
+``
+
+testMakeDocs()
+```
+norma --makedocs
+0    [main] ERROR org.xmlcml.cmine.args.DefaultArgProcessor  - Cannot create output: --project or --output must be given
+```
+
+testVersion()
+```
+norma --version
+```
+
+testTag() #error
+```
+norma --chars a,b
+workshop@crunchbang:~/norma$ norma --chars a,b
+0    [main] ERROR org.xmlcml.cmine.args.ArgumentOption  - Incompatible type and default: class org.xmlcml.cmine.args.StringPair; class java.lang.String
+18   [main] ERROR org.xmlcml.cmine.args.DefaultArgProcessor  - Cannot create output: --project or --output must be given
+```
+
 

@@ -196,7 +196,7 @@ testTransformRawHtmlToScholarlyNature()
 cp -r src/test/resources/org/xmlcml/norma/pubstyle/nature/doi_10_1038_nnano_2011_101/ ./target/nature/
 norma -i fulltext.html -o fulltext.xhtml --cmdir target/nature --html jsoup
 norma -i fulltext.xhtml -o scholarly.html --cmdir target/nature --transform nature2html
-``
+```
 
 testMakeDocs()
 ```
